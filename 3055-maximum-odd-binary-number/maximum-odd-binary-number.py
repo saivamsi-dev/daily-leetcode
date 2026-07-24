@@ -14,5 +14,4 @@ class Solution:
             if c=='1':
                 count+=1
         
-        res = '1'*(count-1)+'0'*(len(s)-count)+'1'
-        return res
+        return '1'*(count-1)+'0'*(len(s)-count)+'1'
