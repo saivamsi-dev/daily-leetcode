@@ -4,14 +4,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        i = 0
-        while i < len(nums):
-            correct_idx = nums[i] - 1
-            # Swap if the element is not at its correct position
-            if nums[i] != nums[correct_idx]:
-                nums[i], nums[correct_idx] = nums[correct_idx], nums[i]
+        duplicates = []
+        _abs = abs  # Local function lookup optimization
+        
+        for x in nums:
+            val = _abs(x)
+            idx = val - 1
+            
+            # If the value at target index is negative, val is a duplicate
+            if nums[idx] < 0:
+                duplicates.append(val)
             else:
-                i += 1
+                # Mark target index as visited by negating it
+                nums[idx] = -nums[idx]
                 
-        # Collect elements that are not in their correct positions
-        return [nums[i] for i in range(len(nums)) if nums[i] != i + 1]
+        return duplicates
