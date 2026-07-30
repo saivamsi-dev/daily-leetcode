@@ -4,7 +4,11 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        total_score = 0
+        total = 0
+        _ord = ord
+        _abs = abs
+        
         for i in range(len(s) - 1):
-            total_score += abs(ord(s[i]) - ord(s[i + 1]))
-        return total_score
+            total += _abs(_ord(s[i]) - _ord(s[i + 1]))
+            
+        return total
