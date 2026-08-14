@@ -15,8 +15,8 @@ class Solution:
             # If the count of the character we just added exceeds 2:
             # We move k forward and shrink the window until count <= 2
             while counts[char] > 2:
-                left_char = s[k]
-                counts[left_char] -= 1
+                l = s[k]
+                counts[l] -= 1
                 k += 1  # Increment k as you described!
             
             # Update maximum length found so far
